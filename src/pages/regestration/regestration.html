@@ -1,0 +1,38 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div class="a">
+      <ion-icon class="sisz" ios="ios-person-add" md="md-person-add"></ion-icon>
+  </div>
+  <div class="mm">
+        <ion-item>
+          <ion-label fixed>username</ion-label>
+          <ion-input [(ngModel)]="username" aria-required="true" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>password</ion-label>
+          <ion-input [(ngModel)]="password" aria-required="true" type="password"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>email</ion-label>
+          <ion-input [(ngModel)]="email" aria-required="true" type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label fixed>phone</ion-label>
+          <ion-input [(ngModel)]="phone" aria-required="true" type="number"></ion-input>
+        </ion-item>
+        <div class="m">
+          <button ion-button full class="butt" (click)="save()">regester</button>
+        </div>
+  </div>
+  
+
+</ion-content>

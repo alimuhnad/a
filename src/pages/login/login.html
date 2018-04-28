@@ -1,0 +1,32 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding >
+  <div class="a" >
+      <ion-icon class="sisz" ios="ios-contact" md="md-contact"></ion-icon>
+  </div>
+  <div class="m"  >
+      <ion-item>
+          <ion-label fixed text-center><ion-icon ios="ios-contact" md="md-contact"></ion-icon></ion-label>
+          <ion-input [(ngModel)]="username" placeholder="username" type="text"></ion-input>
+        </ion-item>
+      
+        <ion-item>
+          <ion-label fixed text-center>  <ion-icon ios="ios-key" md="md-key"></ion-icon>
+          </ion-label>
+          <ion-input [(ngModel)]="password" placeholder="password" type="password"></ion-input>
+        </ion-item>
+      <div class="m">
+        <button ion-button full class="butt" (click)="login()">login</button>
+      </div>
+  </div>
+  
+
+</ion-content>
