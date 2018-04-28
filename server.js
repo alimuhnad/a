@@ -20,7 +20,7 @@ const stor = multer.diskStorage({
 const upload = multer({storage:stor});
 
 // Configuration
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(MONGODB_URI);
 //mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
 
 app.use(morgan('dev'));                                         // log every request to the console
