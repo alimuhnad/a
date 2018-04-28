@@ -18,8 +18,8 @@ const stor = multer.diskStorage({
     }
 })
 const upload = multer({storage:stor});
-app.use(express.static('./uploads'))
-
+var publicDir = require('path').join(__dirname,'/uploads');
+app.use(express.static(publicDir));
 // Configuration
 mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
 //mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
