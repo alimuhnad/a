@@ -19,7 +19,10 @@ const stor = multer.diskStorage({
 })
 const upload = multer({storage:stor});
 
-app.use('/', express.static(__dirname + '/'));
+app.use(express.static('public'));
+
+//Serves all the request which includes /images in the url from Images folder
+app.use('/uploads', express.static(__dirname + '/uploads'));
 
 // Configuration
 mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
