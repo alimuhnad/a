@@ -21,7 +21,7 @@ const upload = multer({storage:stor});
  app.use(express.static('/'));
 
 // Configuration
-mongoose.connect(MONGODB_URI);
+mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
 //mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
 
 app.use(morgan('dev'));                                         // log every request to the console
