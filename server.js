@@ -13,16 +13,14 @@ const stor = multer.diskStorage({
         cb(null,'./uploads');
     },
     filename:function(req,file,cb){
-        const imgs='-' + Date.now()+file.originalname;
         cb(null, '-' + Date.now()+file.originalname);
     }
 })
 const upload = multer({storage:stor});
 
-app.use(express.static('public'));
 
 //Serves all the request which includes /images in the url from Images folder
-app.use('/uploads', express.static(__dirname + '/uploads'));
+app.use(express.static(path.join(__dirname, '../uploads')));
 
 // Configuration
 mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
@@ -66,8 +64,6 @@ var items = mongoose.model('items', {
 
 var user = new users();
 
-
-
 app.post('/api/login', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
@@ -86,7 +82,6 @@ app.post('/api/login', function(req, res) {
     });
 
 });
-
 
 // تسجيل مستخدم جديد
 app.post('/api/regs', function(req, res) {
@@ -118,8 +113,6 @@ app.post('/api/regs', function(req, res) {
             return res.send("regesterd");
         }
             
-
-        
     });
   });
 
@@ -153,17 +146,6 @@ app.post('/api/up', upload.single('imgs') ,function(req, res) {
              res.json(items); // return all reviews in JSON format
          });
      });
-
-
-
-
-
-
-
-
-
-
-
 
 // // Routes
  
@@ -207,7 +189,7 @@ app.post('/api/up', upload.single('imgs') ,function(req, res) {
 //         });
  
 //     });
-    
+   
 
 //       // delete a review
 //       app.delete('/api/regs/:_id', function(req, res) {
