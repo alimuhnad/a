@@ -126,7 +126,7 @@ app.post('/api/up', upload.single('imgs') ,function(req, res) {
             items.create({
             item :req.body.item,
             price : req.body.price,
-            imgs: req.file.path
+            imgs: req.file.filename
         }, function(err, users) {
                                 if (err)
                                     res.send(err);
