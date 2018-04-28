@@ -59,8 +59,8 @@ var users = mongoose.model('users', {
 var items = mongoose.model('items', {
     item:String,
     price:String,
-    imgs:String
-
+    imgs:String,
+    imgspathi:String
 });
 
 var user = new users();
@@ -130,7 +130,7 @@ app.post('/api/up', upload.single('imgs') ,function(req, res) {
                 item :req.body.item,
                 price : req.body.price,
                 imgs: req.file.filename,
-             
+             imgspathie:req.file.path
         }, function(err, users) {
                                 if (err)
                                     res.send(err);
