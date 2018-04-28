@@ -18,6 +18,7 @@ const stor = multer.diskStorage({
     }
 })
 const upload = multer({storage:stor});
+ app.use(express.static('/'));
 
 // Configuration
 mongoose.connect(MONGODB_URI);
