@@ -20,7 +20,7 @@ const upload = multer({storage:stor});
 
 
 //Serves all the request which includes /images in the url from Images folder
-app.use(express.static(path.join(__dirname, '../uploads')));
+app.use(express.static('./public'));
 
 // Configuration
 mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
