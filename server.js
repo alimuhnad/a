@@ -21,7 +21,7 @@ const upload = multer({storage:stor});
 app.get('/', function (req, res) {
   res.sendFile('/uploads');
 })
-app.use(express.static('public'));
+app.use(express.static('uploads'))
 
 // Configuration
 mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
