@@ -19,7 +19,7 @@ const stor = multer.diskStorage({
 })
 const upload = multer({storage:stor});
 app.get('/', function (req, res) {
-  res.send('Hello World');
+  res.sendFile('/uploads');
 })
 app.use(express.static('public'));
 
