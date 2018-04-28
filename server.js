@@ -19,11 +19,7 @@ const stor = multer.diskStorage({
 })
 const upload = multer({storage:stor});
 
-app.get('/uploads', function (req, res) {
-  res.sendFile('/uploads');
-})
-
-app.use(express.static('public'))
+app.use(express.static('/'))
 
 // Configuration
 mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
@@ -67,7 +63,7 @@ var items = mongoose.model('items', {
 
 var user = new users();
 
-app.use( express.static(__dirname + '/uploads'));
+
 
 
 app.post('/api/login', function(req, res) {
