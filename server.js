@@ -19,7 +19,7 @@ const stor = multer.diskStorage({
 })
 const upload = multer({storage:stor});
 
-app.use(express.static('/a'))
+app.use(express.static(__dirname + '/uploads/'));
 
 // Configuration
 mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
@@ -64,31 +64,6 @@ var items = mongoose.model('items', {
 var user = new users();
 
 
-// Get all uploaded images
-app.get('/uploads', (req, res, next) => {
-    // use lean() to get a plain JS object
-    // remove the version key from the response
-    items.find({}, '-__v').lean().exec((err, items) => {
-        if (err) {
-            res.sendStatus(400);
-        }
- 
-        // Manually set the correct URL to each image
-        for (let i = 0; i < items.length; i++) {
-            var img = items[i];
-            img.url = req.protocol + '://' + req.get('host') + '/uploads/' + img.imgs;
-        }
-        res.json(items);
-    })
-});
-app.get('/uploads/:id', (req, res, next) => {
-    let imgId = req.params.id;
- 
-   
-        // stream the image back by loading the file
-        res.setHeader('Content-Type', 'image/jpeg');
-        fs.createReadStream(path.join('./uploads/',imgId)).pipe(res);
-});
 
 app.post('/api/login', function(req, res) {
     var username = req.body.username;
