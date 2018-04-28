@@ -19,7 +19,7 @@ const stor = multer.diskStorage({
 })
 const upload = multer({storage:stor});
 
-app.get('/uploads/-1524910255115balloon-2331488_1280.jpg', function (req, res) {
+app.get('/uploads', function (req, res) {
   res.sendFile('/uploads');
 })
 
