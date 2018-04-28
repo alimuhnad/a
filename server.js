@@ -76,7 +76,7 @@ app.get('/images', (req, res, next) => {
         // Manually set the correct URL to each image
         for (let i = 0; i < items.length; i++) {
             var img = items[i];
-            img.url = req.protocol + '://' + req.get('host') + '/images/' + img._id;
+            img.url = req.protocol + '://' + req.get('host') + '/uploads/' + img._id;
         }
         res.json(items);
     })
