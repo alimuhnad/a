@@ -64,7 +64,23 @@ var items = mongoose.model('items', {
 var user = new users();
 
 
-
+// Get all uploaded images
+app.get('/images', (req, res, next) => {
+    // use lean() to get a plain JS object
+    // remove the version key from the response
+    items.find({}, '-__v').lean().exec((err, items) => {
+        if (err) {
+            res.sendStatus(400);
+        }
+ 
+        // Manually set the correct URL to each image
+        for (let i = 0; i < items.length; i++) {
+            var img = items[i];
+            img.url = req.protocol + '://' + req.get('host') + '/images/' + img._id;
+        }
+        res.json(items);
+    })
+});
 
 app.post('/api/login', function(req, res) {
     var username = req.body.username;
