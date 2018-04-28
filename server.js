@@ -65,10 +65,8 @@ var items = mongoose.model('items', {
 
 var user = new users();
 
+app.use( express.static(__dirname + '/uploads'));
 
-app.get('/uploads', function (req, res) {
-    res.get(path.resolve('./uploads/'))
-}); 
 
 app.post('/api/login', function(req, res) {
     var username = req.body.username;
