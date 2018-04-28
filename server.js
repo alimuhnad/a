@@ -65,7 +65,7 @@ var user = new users();
 
 
 // Get all uploaded images
-app.get('/images', (req, res, next) => {
+app.get('/uploads', (req, res, next) => {
     // use lean() to get a plain JS object
     // remove the version key from the response
     items.find({}, '-__v').lean().exec((err, items) => {
@@ -76,23 +76,20 @@ app.get('/images', (req, res, next) => {
         // Manually set the correct URL to each image
         for (let i = 0; i < items.length; i++) {
             var img = items[i];
-            img.url = req.protocol + '://' + req.get('host') + '/uploads/' + img._id;
+            img.url = req.protocol + '://' + req.get('host') + '/uploads/' + img.imgs;
         }
         res.json(items);
     })
 });
-app.get('/images/:id', (req, res, next) => {
+app.get('/uploads/:id', (req, res, next) => {
     let imgId = req.params.id;
  
-    items.findById(imgId, (err, image) => {
-        if (err) {
-            res.sendStatus(400);
-        }
+   
         // stream the image back by loading the file
         res.setHeader('Content-Type', 'image/jpeg');
-        fs.createReadStream(path.join('./uploads', image.filename)).pipe(res);
-    })
+        fs.createReadStream(path.join('./uploads/',imgId)).pipe(res);
 });
+
 app.post('/api/login', function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
