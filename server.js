@@ -127,10 +127,9 @@ app.post('/api/regs', function(req, res) {
 app.post('/api/up', upload.single('imgs') ,function(req, res) {
       console.log(req.file);
             items.create({
-                item :req.body.item,
-                price : req.body.price,
-                imgs: req.file.filename,
-             imgspathie:req.file.path
+            item :req.body.item,
+            price : req.body.price,
+            imgs: req.file.path
         }, function(err, users) {
                                 if (err)
                                     res.send(err);
