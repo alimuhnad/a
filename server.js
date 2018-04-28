@@ -225,5 +225,6 @@ app.post('/api/up', upload.single('imgs') ,function(req, res) {
  
  
 // listen (start app with node server.js) ======================================
-app.listen(8080);
+var port = process.env.PORT || 8080;
+app.listen(port);
 console.log("App listening on port 8080");
