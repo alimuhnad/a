@@ -122,7 +122,7 @@ app.post('/api/up', upload.single('imgs') ,function(req, res) {
             items.create({
             item :req.body.item,
             price : req.body.price,
-            imgs: req.file.filename
+            imgs: req.file.toString('base64')
         }, function(err, users) {
                                 if (err)
                                     res.send(err);
