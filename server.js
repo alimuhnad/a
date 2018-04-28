@@ -18,7 +18,6 @@ const stor = multer.diskStorage({
     }
 })
 const upload = multer({storage:stor});
- app.use('/uploads');
 
 // Configuration
 mongoose.connect('mongodb://a:a@ds161539.mlab.com:61539/a');
