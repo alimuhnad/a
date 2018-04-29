@@ -56,10 +56,7 @@ var users = mongoose.model('users', {
 });
 
 var items = mongoose.model('items', {
-    item:String,
-    price:String,
-    imgs:String,
-    imgspathi:String
+
 });
 
 var user = new users();
@@ -85,11 +82,9 @@ app.post('/api/login', function(req, res) {
 
   app.post('/api/up1',function(req, res) {
     
-        
-     
           items.create({
               item :req.body.item,
-              price : req.body.imgs,
+              price : req.body.price,
               imgs: req.body.imgs,
       }, function(err, users) {
                               if (err)
@@ -97,6 +92,7 @@ app.post('/api/login', function(req, res) {
 
           return res.status(200).send("ko");
       });
+    
 
 });
 // تسجيل مستخدم جديد
