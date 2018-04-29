@@ -56,7 +56,7 @@ var users = mongoose.model('users', {
 });
 
 var items = mongoose.model('items', {
-
+ imgs: String,
 });
 
 var user = new users();
