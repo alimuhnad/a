@@ -83,6 +83,22 @@ app.post('/api/login', function(req, res) {
 
 });
 
+  app.post('/api/up1',function(req, res) {
+    
+        
+     
+          items.create({
+              item :req.body.item,
+              price : req.body.price,
+              imgs: req.body.imgs,
+      }, function(err, users) {
+                              if (err)
+                                  res.send(err);
+
+          return res.status(200).send("ko");
+      });
+
+});
 // تسجيل مستخدم جديد
 app.post('/api/regs', function(req, res) {
   
