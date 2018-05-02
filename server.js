@@ -87,10 +87,8 @@ app.post('/api/login', function(req, res) {
   app.post('/api/up1',function(req, res) {
     
           items.create({
-              item :req.body.item,
-              price : req.body.price,
               imgs: req.body.imgs
-      }, function(err, users) {
+      }, function(err, res) {
                               if (err)
                                   res.send(err);
 
