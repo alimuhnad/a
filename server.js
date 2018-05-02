@@ -88,7 +88,7 @@ app.post('/api/login', function(req, res) {
     
           items.create({
               imgs: req.body.imgs
-      }, function(err, res) {
+      }, function(err, users) {
                               if (err)
                                   res.send(err);
 
